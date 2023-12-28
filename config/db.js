@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 import colors from "colors";
 import dotenv from "dotenv";
 
-// Load environment variables from .env file
-dotenv.config();
+
 
 const connectDB = async () => {
   try {
