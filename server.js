@@ -33,9 +33,9 @@ app.use(morgan("dev"));
 
 app.use(express.static(path.join(__dirname, './client/build')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, '/client/build/index.html'));
+// })
 
 
 
@@ -53,9 +53,12 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 8080;
 
 //run listen
-app.listen(PORT, () => {
-  console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-      .white
-  );
-});
+connectDB().then(()=> {
+  app.listen(PORT, () => {
+    console.log(
+      `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
+        .white
+    );
+  });
+})
+

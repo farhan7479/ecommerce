@@ -6,12 +6,7 @@ import dotenv from "dotenv";
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-      useCreateIndex: true,
-    });
+    const conn = await mongoose.connect(process.env.MONGO_URL);
     console.log(
       `Connected to MongoDB Database ${conn.connection.host}`.bgMagenta.white
     );
